@@ -12,7 +12,9 @@ dependencies = [
     "pyopenssl (==24.2.1)",
     "cryptography (<44)",
     "ipykernel (>=7.2.0,<8.0.0)",
-    "pandas (>=3.0.3,<4.0.0)"
+    "pandas (>=3.0.3,<4.0.0)",
+    "matplotlib (>=3.10.9,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)"
 ]
 
 
