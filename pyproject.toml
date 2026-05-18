@@ -1,0 +1,21 @@
+[project]
+name = "give-me-some-credit"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Drema"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "dvc (>=3.67.1,<4.0.0)",
+    "dvc-gdrive (>=3.0.1,<4.0.0)",
+    "pyopenssl (==24.2.1)",
+    "cryptography (<44)",
+    "ipykernel (>=7.2.0,<8.0.0)",
+    "pandas (>=3.0.3,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
