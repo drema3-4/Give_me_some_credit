@@ -10,14 +10,35 @@ stages:
       size: 7564965
     - path: src/credit_risk_scoring/preprocessing/commands.py
       hash: md5
-      md5: f34b77779ba0ca37909443824e108609
-      size: 712
-    - path: src/credit_risk_scoring/preprocessing/common_prepare_train_data.py
+      md5: 978e0af80d1514797b23c944179384ac
+      size: 1251
+    - path: src/credit_risk_scoring/preprocessing/common_prepare_data.py
       hash: md5
-      md5: 482680c8d65081b135786cdc72256b08
-      size: 1126
+      md5: d271f0e23dd61d8fec4a83240e5e3078
+      size: 1125
     outs:
     - path: data/interim/train_prepared.csv
       hash: md5
       md5: 7f133f9c898525c906e4674a2b61d375
       size: 7181685
+  common-prepare-test-data:
+    cmd: "credit-risk common-prepare-test-data --input-path data/raw/cs-test.csv --output-path
+      data/interim/test_prepared.csv\n"
+    deps:
+    - path: data/raw/cs-test.csv
+      hash: md5
+      md5: 62a1c4fe5ae82e6d0665dc97f6cb113a
+      size: 4983329
+    - path: src/credit_risk_scoring/preprocessing/commands.py
+      hash: md5
+      md5: 978e0af80d1514797b23c944179384ac
+      size: 1251
+    - path: src/credit_risk_scoring/preprocessing/common_prepare_data.py
+      hash: md5
+      md5: d271f0e23dd61d8fec4a83240e5e3078
+      size: 1125
+    outs:
+    - path: data/interim/test_prepared.csv
+      hash: md5
+      md5: f4b9ac0ca1af3130337dab132487ea5e
+      size: 4759658

@@ -1,6 +1,6 @@
 import click
 
-from credit_risk_scoring.preprocessing.commands import common_prepare_train_data
+from credit_risk_scoring.preprocessing.commands import common_prepare_train_data, common_prepare_test_data
 
 
 @click.group()
@@ -9,3 +9,4 @@ def cli():
 
 
 cli.add_command(common_prepare_train_data)
+cli.add_command(common_prepare_test_data)

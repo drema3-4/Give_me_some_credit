@@ -1,7 +1,7 @@
 from pathlib import Path
 import click
 
-from credit_risk_scoring.preprocessing.common_prepare_train_data import __common_prepare_train_data__
+from credit_risk_scoring.preprocessing.common_prepare_data import __common_prepare_data__
 
 
 @click.command("common-prepare-train-data")
@@ -19,4 +19,22 @@ from credit_risk_scoring.preprocessing.common_prepare_train_data import __common
 )
 def common_prepare_train_data(input_path: Path, output_path: Path):
     """Common prepare train data"""
-    __common_prepare_train_data__(input_path=input_path, output_path=output_path)
+    __common_prepare_data__(input_path=input_path, output_path=output_path)
+
+
+@click.command("common-prepare-test-data")
+@click.option(
+    "--input-path",
+    type=click.Path(exists=True, dir_okay=False, path_type=Path),
+    default=Path("data/raw/cs-test.csv"),
+    show_default=True,
+)
+@click.option(
+    "--output-path",
+    type=click.Path(dir_okay=False, path_type=Path),
+    default=Path("data/interim/test_prepared.csv"),
+    show_default=True,
+)
+def common_prepare_test_data(input_path: Path, output_path: Path):
+    """Common prepare train data"""
+    __common_prepare_data__(input_path=input_path, output_path=output_path)

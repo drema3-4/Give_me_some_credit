@@ -17,7 +17,7 @@ COLUMNS_MAPPING = {
 }
 
 
-def __common_prepare_train_data__(input_path: str | Path, output_path: str | Path) -> None:
+def __common_prepare_data__(input_path: str | Path, output_path: str | Path) -> None:
     """Common prepare train data: del waste column and rename columns"""
     input_path = Path(input_path)
     output_path = Path(output_path)
