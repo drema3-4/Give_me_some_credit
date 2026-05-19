@@ -1,0 +1,12 @@
+stages:
+  common-prepare-train-data:
+    cmd: >
+      credit-risk common-prepare-train-data
+      --input-path data/raw/cs-training.csv
+      --output-path data/interim/train_prepared.csv
+    deps:
+      - data/raw/cs-training.csv
+      - src/credit_risk_scoring/preprocessing/common_prepare_train_data.py
+      - src/credit_risk_scoring/preprocessing/commands.py
+    outs:
+      - data/interim/train_prepared.csv

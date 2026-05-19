@@ -14,8 +14,16 @@ dependencies = [
     "ipykernel (>=7.2.0,<8.0.0)",
     "pandas (>=3.0.3,<4.0.0)",
     "matplotlib (>=3.10.9,<4.0.0)",
-    "seaborn (>=0.13.2,<0.14.0)"
+    "seaborn (>=0.13.2,<0.14.0)",
+    "click (>=8.4.0,<9.0.0)"
 ]
+
+
+[project.scripts]
+credit-risk = "credit_risk_scoring.cli:cli"
+
+[tool.poetry]
+packages = [{ include = "credit_risk_scoring", from = "src" }]
 
 
 [build-system]

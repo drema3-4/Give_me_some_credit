@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  common-prepare-train-data:
+    cmd: "credit-risk common-prepare-train-data --input-path data/raw/cs-training.csv
+      --output-path data/interim/train_prepared.csv\n"
+    deps:
+    - path: data/raw/cs-training.csv
+      hash: md5
+      md5: cce525a1d41f234f58d3bb52f3d2516b
+      size: 7564965
+    - path: src/credit_risk_scoring/preprocessing/commands.py
+      hash: md5
+      md5: f34b77779ba0ca37909443824e108609
+      size: 712
+    - path: src/credit_risk_scoring/preprocessing/common_prepare_train_data.py
+      hash: md5
+      md5: 482680c8d65081b135786cdc72256b08
+      size: 1126
+    outs:
+    - path: data/interim/train_prepared.csv
+      hash: md5
+      md5: 7f133f9c898525c906e4674a2b61d375
+      size: 7181685
