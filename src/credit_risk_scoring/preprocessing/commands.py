@@ -1,7 +1,7 @@
 from pathlib import Path
 import click
 
-from credit_risk_scoring.preprocessing.common_prepare_data import __common_prepare_data__
+from credit_risk_scoring.preprocessing.common_prepare_data import common_prepare_data
 
 
 @click.command("common-prepare-train-data")
@@ -19,7 +19,7 @@ from credit_risk_scoring.preprocessing.common_prepare_data import __common_prepa
 )
 def common_prepare_train_data(input_path: Path, output_path: Path):
     """Common prepare train data"""
-    __common_prepare_data__(input_path=input_path, output_path=output_path)
+    common_prepare_data(input_path=input_path, output_path=output_path)
 
 
 @click.command("common-prepare-test-data")
@@ -37,4 +37,4 @@ def common_prepare_train_data(input_path: Path, output_path: Path):
 )
 def common_prepare_test_data(input_path: Path, output_path: Path):
     """Common prepare train data"""
-    __common_prepare_data__(input_path=input_path, output_path=output_path)
+    common_prepare_data(input_path=input_path, output_path=output_path)
