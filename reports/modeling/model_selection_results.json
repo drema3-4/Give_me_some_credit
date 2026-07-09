@@ -1,0 +1,192 @@
+{
+  "logistic_regression": {
+    "status": "ok",
+    "elapsed_seconds": 57.299628496170044,
+    "dataset_family": "linear",
+    "train_path": "D:\\Pet Projects\\ML\\give_me_some_credit\\data\\processed\\linear\\train.csv",
+    "rows": 149390,
+    "features": 57,
+    "target_rate": 0.06699912979449762,
+    "search_strategy": "grid",
+    "scoring": "roc_auc",
+    "cv": 5,
+    "best_cv_score": 0.8610401191412933,
+    "best_params": {
+      "model__C": 5.0,
+      "model__solver": "liblinear"
+    },
+    "train": {
+      "roc_auc": 0.862052813334989,
+      "average_precision": 0.38636255236692474,
+      "precision": 0.22590520825459218,
+      "recall": 0.7464718371425003,
+      "f1": 0.34684462498186563,
+      "accuracy": 0.8116423455385233,
+      "threshold": 0.5
+    },
+    "validation": {
+      "roc_auc": 0.8592388741979788,
+      "average_precision": 0.388077588560066,
+      "precision": 0.22451127819548872,
+      "recall": 0.7457542457542458,
+      "f1": 0.3451225150254276,
+      "accuracy": 0.8103621393667582,
+      "threshold": 0.5
+    },
+    "cv_results_path": "reports\\modeling\\logistic_regression_tuning_cv_results.csv"
+  },
+  "decision_tree": {
+    "status": "ok",
+    "elapsed_seconds": 69.54404616355896,
+    "dataset_family": "tree",
+    "train_path": "D:\\Pet Projects\\ML\\give_me_some_credit\\data\\processed\\tree\\train.csv",
+    "rows": 149390,
+    "features": 22,
+    "target_rate": 0.06699912979449762,
+    "search_strategy": "grid",
+    "scoring": "roc_auc",
+    "cv": 5,
+    "best_cv_score": 0.8540568562786408,
+    "best_params": {
+      "criterion": "entropy",
+      "max_depth": 7,
+      "min_samples_leaf": 200,
+      "min_samples_split": 50
+    },
+    "train": {
+      "roc_auc": 0.8596418870450823,
+      "average_precision": 0.38371430277000707,
+      "precision": 0.2032279844388001,
+      "recall": 0.7894342450355939,
+      "f1": 0.3232421375607262,
+      "accuracy": 0.7785326996452239,
+      "threshold": 0.5
+    },
+    "validation": {
+      "roc_auc": 0.8485348236209191,
+      "average_precision": 0.36803801021016347,
+      "precision": 0.1994878361075544,
+      "recall": 0.7782217782217782,
+      "f1": 0.317570322054627,
+      "accuracy": 0.7758886136956958,
+      "threshold": 0.5
+    },
+    "cv_results_path": "reports\\modeling\\decision_tree_tuning_cv_results.csv"
+  },
+  "xgboost": {
+    "status": "ok",
+    "elapsed_seconds": 124.03870749473572,
+    "dataset_family": "tree",
+    "train_path": "D:\\Pet Projects\\ML\\give_me_some_credit\\data\\processed\\tree\\train.csv",
+    "rows": 149390,
+    "features": 22,
+    "target_rate": 0.06699912979449762,
+    "search_strategy": "random",
+    "scoring": "roc_auc",
+    "cv": 5,
+    "best_cv_score": 0.8668516036039463,
+    "best_params": {
+      "model__subsample": 1.0,
+      "model__reg_lambda": 10.0,
+      "model__n_estimators": 400,
+      "model__max_depth": 4,
+      "model__learning_rate": 0.03,
+      "model__colsample_bytree": 0.8
+    },
+    "train": {
+      "roc_auc": 0.8763750057563362,
+      "average_precision": 0.42749436039250854,
+      "precision": 0.21972753923090188,
+      "recall": 0.7956787810665668,
+      "f1": 0.34435976433706283,
+      "accuracy": 0.7970078318495214,
+      "threshold": 0.5
+    },
+    "validation": {
+      "roc_auc": 0.8637941194979508,
+      "average_precision": 0.39863251714590314,
+      "precision": 0.21431520991052994,
+      "recall": 0.7777222777222778,
+      "f1": 0.3360310780187763,
+      "accuracy": 0.7940625209184015,
+      "threshold": 0.5
+    },
+    "cv_results_path": "reports\\modeling\\xgboost_tuning_cv_results.csv"
+  },
+  "catboost": {
+    "status": "ok",
+    "elapsed_seconds": 618.1538641452789,
+    "dataset_family": "tree",
+    "train_path": "D:\\Pet Projects\\ML\\give_me_some_credit\\data\\processed\\tree\\train.csv",
+    "rows": 149390,
+    "features": 22,
+    "target_rate": 0.06699912979449762,
+    "search_strategy": "random",
+    "scoring": "roc_auc",
+    "cv": 5,
+    "best_cv_score": 0.867065132238911,
+    "best_params": {
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 10.0,
+      "iterations": 700,
+      "depth": 6
+    },
+    "train": {
+      "roc_auc": 0.8831979200612807,
+      "average_precision": 0.438415353821833,
+      "precision": 0.22927840949724665,
+      "recall": 0.8007993006119646,
+      "f1": 0.35648958941428294,
+      "accuracy": 0.8063039694758686,
+      "threshold": 0.5
+    },
+    "validation": {
+      "roc_auc": 0.8634975836331842,
+      "average_precision": 0.4003103230840541,
+      "precision": 0.21794871794871795,
+      "recall": 0.7642357642357642,
+      "f1": 0.3391709155397916,
+      "accuracy": 0.8004551844166277,
+      "threshold": 0.5
+    },
+    "cv_results_path": "reports\\modeling\\catboost_tuning_cv_results.csv"
+  },
+  "random_forest": {
+    "status": "ok",
+    "elapsed_seconds": 894.369927406311,
+    "dataset_family": "tree",
+    "train_path": "D:\\Pet Projects\\ML\\give_me_some_credit\\data\\processed\\tree\\train.csv",
+    "rows": 149390,
+    "features": 22,
+    "target_rate": 0.06699912979449762,
+    "search_strategy": "random",
+    "scoring": "roc_auc",
+    "cv": 5,
+    "best_cv_score": 0.864675717870858,
+    "best_params": {
+      "n_estimators": 500,
+      "min_samples_leaf": 20,
+      "max_features": "sqrt",
+      "max_depth": 12
+    },
+    "train": {
+      "roc_auc": 0.8905892128701991,
+      "average_precision": 0.46408048615462744,
+      "precision": 0.24593386263778616,
+      "recall": 0.7969276882727613,
+      "f1": 0.37587252967337204,
+      "accuracy": 0.8226872615302229,
+      "threshold": 0.5
+    },
+    "validation": {
+      "roc_auc": 0.8610582271796219,
+      "average_precision": 0.39211186075616344,
+      "precision": 0.2291988864831426,
+      "recall": 0.7402597402597403,
+      "f1": 0.3500236183278224,
+      "accuracy": 0.8157841890354107,
+      "threshold": 0.5
+    },
+    "cv_results_path": "reports\\modeling\\random_forest_tuning_cv_results.csv"
+  }
+}

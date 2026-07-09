@@ -43,3 +43,103 @@ stages:
       - data/processed/linear/test.csv
       - data/processed/tree/train.csv
       - data/processed/tree/test.csv
+
+  train-logistic-regression:
+    cmd: >
+      credit-risk train-best-model
+      --model-type logistic_regression
+      --train-path data/processed/linear/train.csv
+      --model-output-path models/logistic_regression.joblib
+      --metrics-output-path reports/modeling/logistic_regression_metrics.json
+      --params-output-path reports/modeling/logistic_regression_best_params.json
+    deps:
+      - data/processed/linear/train.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/modeling/commands.py
+      - src/credit_risk_scoring/modeling/train_models.py
+    outs:
+      - models/logistic_regression.joblib
+      - reports/modeling/logistic_regression_best_params.json
+    metrics:
+      - reports/modeling/logistic_regression_metrics.json:
+          cache: false
+
+  train-decision-tree:
+    cmd: >
+      credit-risk train-best-model
+      --model-type decision_tree
+      --train-path data/processed/tree/train.csv
+      --model-output-path models/decision_tree.joblib
+      --metrics-output-path reports/modeling/decision_tree_metrics.json
+      --params-output-path reports/modeling/decision_tree_best_params.json
+    deps:
+      - data/processed/tree/train.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/modeling/commands.py
+      - src/credit_risk_scoring/modeling/train_models.py
+    outs:
+      - models/decision_tree.joblib
+      - reports/modeling/decision_tree_best_params.json
+    metrics:
+      - reports/modeling/decision_tree_metrics.json:
+          cache: false
+
+  train-xgboost:
+    cmd: >
+      credit-risk train-best-model
+      --model-type xgboost
+      --train-path data/processed/tree/train.csv
+      --model-output-path models/xgboost.joblib
+      --metrics-output-path reports/modeling/xgboost_metrics.json
+      --params-output-path reports/modeling/xgboost_best_params.json
+    deps:
+      - data/processed/tree/train.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/modeling/commands.py
+      - src/credit_risk_scoring/modeling/train_models.py
+    outs:
+      - models/xgboost.joblib
+      - reports/modeling/xgboost_best_params.json
+    metrics:
+      - reports/modeling/xgboost_metrics.json:
+          cache: false
+
+  train-catboost:
+    cmd: >
+      credit-risk train-best-model
+      --model-type catboost
+      --train-path data/processed/tree/train.csv
+      --model-output-path models/catboost.joblib
+      --metrics-output-path reports/modeling/catboost_metrics.json
+      --params-output-path reports/modeling/catboost_best_params.json
+    deps:
+      - data/processed/tree/train.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/modeling/commands.py
+      - src/credit_risk_scoring/modeling/train_models.py
+    outs:
+      - models/catboost.joblib
+      - reports/modeling/catboost_best_params.json
+    metrics:
+      - reports/modeling/catboost_metrics.json:
+          cache: false
+
+  train-random-forest:
+    cmd: >
+      credit-risk train-best-model
+      --model-type random_forest
+      --train-path data/processed/tree/train.csv
+      --model-output-path models/random_forest.joblib
+      --metrics-output-path reports/modeling/random_forest_metrics.json
+      --params-output-path reports/modeling/random_forest_best_params.json
+    deps:
+      - data/processed/tree/train.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/modeling/commands.py
+      - src/credit_risk_scoring/modeling/train_models.py
+    outs:
+      - models/random_forest.joblib
+      - reports/modeling/random_forest_best_params.json
+    metrics:
+      - reports/modeling/random_forest_metrics.json:
+          cache: false

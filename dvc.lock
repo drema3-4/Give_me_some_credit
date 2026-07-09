@@ -59,8 +59,8 @@ stages:
       size: 7891655
     - path: src/credit_risk_scoring/cli.py
       hash: md5
-      md5: 54fc47991631782484a06b3e341df84f
-      size: 391
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
     - path: src/credit_risk_scoring/preprocessing/commands.py
       hash: md5
       md5: e0429c22fb24f1ea4caa09d705c9d6a4
@@ -86,3 +86,174 @@ stages:
       hash: md5
       md5: 986a804f3da093b7613ab763474cee94
       size: 10836890
+  train-logistic-regression:
+    cmd: "credit-risk train-best-model --model-type logistic_regression --train-path
+      data/processed/linear/train.csv --model-output-path models/logistic_regression.joblib
+      --metrics-output-path reports/modeling/logistic_regression_metrics.json --params-output-path
+      reports/modeling/logistic_regression_best_params.json\n"
+    deps:
+    - path: data/processed/linear/train.csv
+      hash: md5
+      md5: 5c8d51506409cfc8b836a8babe405254
+      size: 23971683
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
+    - path: src/credit_risk_scoring/modeling/commands.py
+      hash: md5
+      md5: e56c7962309a9bea95865a54959e6863
+      size: 5095
+    - path: src/credit_risk_scoring/modeling/train_models.py
+      hash: md5
+      md5: c5b3a13b69e9436eae04733e2c061900
+      size: 19022
+    outs:
+    - path: models/logistic_regression.joblib
+      hash: md5
+      md5: 6db4c76db96f3ee82c49b15e10c379c7
+      size: 5165
+    - path: reports/modeling/logistic_regression_best_params.json
+      hash: md5
+      md5: 70f69a11e0d59b007f390bffd313b612
+      size: 56
+    - path: reports/modeling/logistic_regression_metrics.json
+      hash: md5
+      md5: 7ac90c9e55057625c82a980eba253b7c
+      size: 1177
+  train-decision-tree:
+    cmd: "credit-risk train-best-model --model-type decision_tree --train-path data/processed/tree/train.csv
+      --model-output-path models/decision_tree.joblib --metrics-output-path reports/modeling/decision_tree_metrics.json
+      --params-output-path reports/modeling/decision_tree_best_params.json\n"
+    deps:
+    - path: data/processed/tree/train.csv
+      hash: md5
+      md5: 986a804f3da093b7613ab763474cee94
+      size: 10836890
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
+    - path: src/credit_risk_scoring/modeling/commands.py
+      hash: md5
+      md5: e56c7962309a9bea95865a54959e6863
+      size: 5095
+    - path: src/credit_risk_scoring/modeling/train_models.py
+      hash: md5
+      md5: c5b3a13b69e9436eae04733e2c061900
+      size: 19022
+    outs:
+    - path: models/decision_tree.joblib
+      hash: md5
+      md5: a67d7ebb98fff24815528e8af071f660
+      size: 14249
+    - path: reports/modeling/decision_tree_best_params.json
+      hash: md5
+      md5: 889c7911e8c73f738f36da18874c0148
+      size: 105
+    - path: reports/modeling/decision_tree_metrics.json
+      hash: md5
+      md5: a1518c8889f1b34e86b776acb0629f27
+      size: 1219
+  train-xgboost:
+    cmd: "credit-risk train-best-model --model-type xgboost --train-path data/processed/tree/train.csv
+      --model-output-path models/xgboost.joblib --metrics-output-path reports/modeling/xgboost_metrics.json
+      --params-output-path reports/modeling/xgboost_best_params.json\n"
+    deps:
+    - path: data/processed/tree/train.csv
+      hash: md5
+      md5: 986a804f3da093b7613ab763474cee94
+      size: 10836890
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
+    - path: src/credit_risk_scoring/modeling/commands.py
+      hash: md5
+      md5: e56c7962309a9bea95865a54959e6863
+      size: 5095
+    - path: src/credit_risk_scoring/modeling/train_models.py
+      hash: md5
+      md5: c5b3a13b69e9436eae04733e2c061900
+      size: 19022
+    outs:
+    - path: models/xgboost.joblib
+      hash: md5
+      md5: 63dc6ab6d667f7254786f9ca0176bd59
+      size: 672025
+    - path: reports/modeling/xgboost_best_params.json
+      hash: md5
+      md5: 6ef31234d2127d5cdcd4c00064371789
+      size: 186
+    - path: reports/modeling/xgboost_metrics.json
+      hash: md5
+      md5: 48ad153c00300624e9bb1c9a20d8b38a
+      size: 1304
+  train-catboost:
+    cmd: "credit-risk train-best-model --model-type catboost --train-path data/processed/tree/train.csv
+      --model-output-path models/catboost.joblib --metrics-output-path reports/modeling/catboost_metrics.json
+      --params-output-path reports/modeling/catboost_best_params.json\n"
+    deps:
+    - path: data/processed/tree/train.csv
+      hash: md5
+      md5: 986a804f3da093b7613ab763474cee94
+      size: 10836890
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
+    - path: src/credit_risk_scoring/modeling/commands.py
+      hash: md5
+      md5: e56c7962309a9bea95865a54959e6863
+      size: 5095
+    - path: src/credit_risk_scoring/modeling/train_models.py
+      hash: md5
+      md5: c5b3a13b69e9436eae04733e2c061900
+      size: 19022
+    outs:
+    - path: models/catboost.joblib
+      hash: md5
+      md5: 40894957761ec15700ea7384afab95f6
+      size: 778982
+    - path: reports/modeling/catboost_best_params.json
+      hash: md5
+      md5: b2820e2efd89996caf7fbd6c6df5d582
+      size: 90
+    - path: reports/modeling/catboost_metrics.json
+      hash: md5
+      md5: 0ec8bc5d2616227609dea0e91c848ba0
+      size: 1200
+  train-random-forest:
+    cmd: "credit-risk train-best-model --model-type random_forest --train-path data/processed/tree/train.csv
+      --model-output-path models/random_forest.joblib --metrics-output-path reports/modeling/random_forest_metrics.json
+      --params-output-path reports/modeling/random_forest_best_params.json\n"
+    deps:
+    - path: data/processed/tree/train.csv
+      hash: md5
+      md5: 986a804f3da093b7613ab763474cee94
+      size: 10836890
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: ac4bed60f96ba9a01f84536e806485a8
+      size: 573
+    - path: src/credit_risk_scoring/modeling/commands.py
+      hash: md5
+      md5: e56c7962309a9bea95865a54959e6863
+      size: 5095
+    - path: src/credit_risk_scoring/modeling/train_models.py
+      hash: md5
+      md5: c5b3a13b69e9436eae04733e2c061900
+      size: 19022
+    outs:
+    - path: models/random_forest.joblib
+      hash: md5
+      md5: 8daef9bd32f1960542c72d7127792df0
+      size: 43098953
+    - path: reports/modeling/random_forest_best_params.json
+      hash: md5
+      md5: 39da796dba3dea324582ca52285cfee9
+      size: 101
+    - path: reports/modeling/random_forest_metrics.json
+      hash: md5
+      md5: de56aeffa1ee3c4f3c4407d22343821c
+      size: 1218

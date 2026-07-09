@@ -1,0 +1,6 @@
+model_type,dataset_family,best_cv_roc_auc,validation_roc_auc,validation_average_precision,validation_precision,validation_recall,validation_f1,best_params
+logistic_regression,linear,0.8610401191412933,0.8592388741979788,0.388077588560066,0.22451127819548872,0.7457542457542458,0.3451225150254276,"{""model__C"": 5.0, ""model__solver"": ""liblinear""}"
+decision_tree,tree,0.8540568562786408,0.8485348236209191,0.36803801021016347,0.1994878361075544,0.7782217782217782,0.317570322054627,"{""criterion"": ""entropy"", ""max_depth"": 7, ""min_samples_leaf"": 200, ""min_samples_split"": 50}"
+xgboost,tree,0.8668516036039463,0.8637941194979508,0.39863251714590314,0.21431520991052994,0.7777222777222778,0.3360310780187763,"{""model__colsample_bytree"": 0.8, ""model__learning_rate"": 0.03, ""model__max_depth"": 4, ""model__n_estimators"": 400, ""model__reg_lambda"": 10.0, ""model__subsample"": 1.0}"
+catboost,tree,0.867065132238911,0.8634975836331842,0.4003103230840541,0.21794871794871795,0.7642357642357642,0.3391709155397916,"{""depth"": 6, ""iterations"": 700, ""l2_leaf_reg"": 10.0, ""learning_rate"": 0.03}"
+random_forest,tree,0.864675717870858,0.8610582271796219,0.39211186075616344,0.2291988864831426,0.7402597402597403,0.3500236183278224,"{""max_depth"": 12, ""max_features"": ""sqrt"", ""min_samples_leaf"": 20, ""n_estimators"": 500}"
