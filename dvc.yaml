@@ -22,3 +22,24 @@ stages:
       - src/credit_risk_scoring/preprocessing/commands.py
     outs:
       - data/interim/test_prepared.csv
+
+  build-feature-engineering-datasets:
+    cmd: >
+      credit-risk build-feature-engineering-datasets
+      --train-input-path data/interim/train_prepared.csv
+      --test-input-path data/interim/test_prepared.csv
+      --linear-train-output-path data/processed/linear/train.csv
+      --linear-test-output-path data/processed/linear/test.csv
+      --tree-train-output-path data/processed/tree/train.csv
+      --tree-test-output-path data/processed/tree/test.csv
+    deps:
+      - data/interim/train_prepared.csv
+      - data/interim/test_prepared.csv
+      - src/credit_risk_scoring/cli.py
+      - src/credit_risk_scoring/preprocessing/commands.py
+      - src/credit_risk_scoring/preprocessing/feature_engineering.py
+    outs:
+      - data/processed/linear/train.csv
+      - data/processed/linear/test.csv
+      - data/processed/tree/train.csv
+      - data/processed/tree/test.csv

@@ -10,8 +10,8 @@ stages:
       size: 7564965
     - path: src/credit_risk_scoring/preprocessing/commands.py
       hash: md5
-      md5: a21b1fa8d748eacda06a8373596bfd23
-      size: 1239
+      md5: e0429c22fb24f1ea4caa09d705c9d6a4
+      size: 3110
     - path: src/credit_risk_scoring/preprocessing/common_prepare_data.py
       hash: md5
       md5: ecc258980cdb0c61c9c67c63fc8b18b3
@@ -31,8 +31,8 @@ stages:
       size: 4983329
     - path: src/credit_risk_scoring/preprocessing/commands.py
       hash: md5
-      md5: a21b1fa8d748eacda06a8373596bfd23
-      size: 1239
+      md5: e0429c22fb24f1ea4caa09d705c9d6a4
+      size: 3110
     - path: src/credit_risk_scoring/preprocessing/common_prepare_data.py
       hash: md5
       md5: ecc258980cdb0c61c9c67c63fc8b18b3
@@ -42,3 +42,47 @@ stages:
       hash: md5
       md5: 451f88cb2e3188ec74c833dc892132a6
       size: 5243488
+  build-feature-engineering-datasets:
+    cmd: "credit-risk build-feature-engineering-datasets --train-input-path data/interim/train_prepared.csv
+      --test-input-path data/interim/test_prepared.csv --linear-train-output-path
+      data/processed/linear/train.csv --linear-test-output-path data/processed/linear/test.csv
+      --tree-train-output-path data/processed/tree/train.csv --tree-test-output-path
+      data/processed/tree/test.csv\n"
+    deps:
+    - path: data/interim/test_prepared.csv
+      hash: md5
+      md5: 451f88cb2e3188ec74c833dc892132a6
+      size: 5243488
+    - path: data/interim/train_prepared.csv
+      hash: md5
+      md5: f08ecf46e24b9dca646c65953274ff2c
+      size: 7891655
+    - path: src/credit_risk_scoring/cli.py
+      hash: md5
+      md5: 54fc47991631782484a06b3e341df84f
+      size: 391
+    - path: src/credit_risk_scoring/preprocessing/commands.py
+      hash: md5
+      md5: e0429c22fb24f1ea4caa09d705c9d6a4
+      size: 3110
+    - path: src/credit_risk_scoring/preprocessing/feature_engineering.py
+      hash: md5
+      md5: 6b3a0968ea78f0f2919ea6cfdcf7690f
+      size: 20374
+    outs:
+    - path: data/processed/linear/test.csv
+      hash: md5
+      md5: 35552a0e58d3bbb78c16ad786087065a
+      size: 16135084
+    - path: data/processed/linear/train.csv
+      hash: md5
+      md5: 5c8d51506409cfc8b836a8babe405254
+      size: 23971683
+    - path: data/processed/tree/test.csv
+      hash: md5
+      md5: 17d8219bfed9a049bcf26c513c8bf132
+      size: 7238638
+    - path: data/processed/tree/train.csv
+      hash: md5
+      md5: 986a804f3da093b7613ab763474cee94
+      size: 10836890
